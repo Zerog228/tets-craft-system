@@ -6,7 +6,7 @@
 
     <groupId>me.zerog</groupId>
     <artifactId>TetsCraftSystem</artifactId>
-    <version>1.20.2-v1.5</version>
+    <version>1.20.2-v1.6</version>
     <packaging>jar</packaging>
 
     <name>TetsCraftSystem</name>
