@@ -1,0 +1,550 @@
+default_upgrade_cost: 2
+# Points that given by default for crafting 1 item
+default_points_per_craft: 0.0015
+# l - current level of specialization
+level_cost_formula: 2^l
+# If enabled, player will not receive message with description of needed branch and level if it's not unlocked
+hide_unknown_branch_messages: true
+# If enabled, resets all specs for all players on plugin reload if new upgrade branch was added
+reset_on_add: true
+# If disabled, craft system is disabled!
+disabled: false
+# Material. Things that will always give default points per craft
+always_gives_exp:
+  - STONE_PICKAXE
+  - STONE_AXE
+  - STONE_HOE
+  - STONE_SWORD
+  - STONE_SHOVEL
+  - WOODEN_PICKAXE
+  - WOODEN_AXE
+  - WOODEN_HOE
+  - WOODEN_SHOVEL
+  - WOODEN_SWORD
+  - PLANKS
+# Material. Things that will never give points per craft
+excluded_materials:
+  - SHEARS
+  - SLAB
+  - DOOR
+  - TRAPDOOR
+  - WOOD
+  - DIAMOND_BLOCK
+  - IRON_BLOCK
+  - IRON_INGOT
+  - IRON_NUGGET
+  - REDSTONE_BLOCK
+  - REDSTONE
+  - COPPER_BLOCK
+  - COPPER_INGOT
+  - GOLD_BLOCK
+  - GOLD_INGOT
+  - NETHERITE_BLOCK
+  - NETHERITE_INGOT
+  - AMETHYST_BLOCK
+  - AMETHYST_SHARD
+  - GLASS
+# Materials that will be unlocked only at certain level of certain specialization
+# but are unintentionally included in lists of another specializations:
+# Boat meant to be unlocked only in armory, but it was also unintentionally included in carpentry
+precise_materials:
+  - BOAT
+  - REDSTONE
+  - ENDER_CHEST
+  - IRON_DOOR
+  - IRON_TRAPDOOR
+  - GRINDSTONE
+  - LODESTONE
+  - LEATHER_CHESTPLATE
+  - IRON_CHESTPLATE
+  - GOLDEN_CHESTPLATE
+  - DIAMOND_CHESTPLATE
+  - CHAINMAIL_CHESTPLATE
+  - FENCE_GATE
+  - RECOVERY_COMPASS
+  - CRAFTING_TABLE
+# Material. Things that you can't craft. It's recommended to use full name here, but part of it is also fine
+always_restricted:
+  - NETHERITE
+  - BOAT
+  - RAFT
+
+everything:
+  points_multiplier: 3
+  upgrade_slot: 22
+  item_material: CRAFTING_TABLE
+  max_level: 1
+  # Color is optional
+  color: RED
+  # Optional. Additional cost added to specialization's default cost when upgrading
+  additional_cost: 0
+  # Translation is also optional, especially if you are using plugin and english language
+  translation: Начало
+  # Optional. Is shown after upgrading to certain level of another specialization
+  # If it has parent, parent level is required
+  # parent: jewelry
+  # parent_level: 3
+  # Lore for item in menu
+  level_0_lore:
+    - Добро пожаловать в меню прокачки крафтов!
+    - Прокачайте это, чтобы начать
+  level_1_lore:
+    - Теперь вам доступны
+    - и другие прокачки крафтов!
+  # Part of block name is enough
+  level_1:
+    - CHEST
+    - COBBLESTONE_SLAB
+    - COBBLESTONE_STAIRS
+    - ANDESITE
+    - DIORITE
+    - GRANITE
+    - TUFF
+    - CALCITE
+    - STONE
+    - WALL
+    - CRAFTING_TABLE
+
+carpentry:
+  points_multiplier: 3
+  upgrade_slot: 39
+  additional_cost: 2
+  item_material: OAK_WOOD
+  color: GRAY
+  max_level: 4
+  translation: Древообработка
+  parent: everything
+  parent_level: 1
+  level_0_lore:
+    - Прокачивая это вы открываете крафты из дерева!
+    - 'Следующий уровень: Заборы, двери и т.п.'
+  level_1_lore:
+    - Прокачивая это вы открываете крафты из дерева!
+    - 'Следующий уровень: Калитка, подмостки, костры'
+    - ''
+    - Новая ветвь прокачки!
+  level_2_lore:
+    - Прокачивая это вы открываете крафты из дерева!
+    - 'Следующий уровень: Лестницы'
+    - ''
+    - Новая ветвь прокачки!
+  level_3_lore:
+    - Прокачивая это вы открываете крафты из дерева!
+    - 'Следующий уровень: Адское дерево'
+  level_4_lore:
+    - Упс, кажется, вы всё прокачали!
+  level_1:
+    - OAK
+    - BIRCH
+    - ACACIA
+    - SPRUCE
+    - JUNGLE
+    - MANGROVE
+    - CHERRY
+    - FENCE
+    - DOOR
+    - TRAPDOOR
+    - SIGN
+    - BAMBOO
+    - BUTTON
+    - PRESSURE_PLATE
+  level_2:
+    - SCAFFOLDING
+    - FENCE_GATE
+    - CAMPFIRE
+  level_3:
+    - LADDER
+  level_4:
+    - CRIMSON
+    - WARPED
+wooden_stations:
+  points_multiplier: 9
+  upgrade_slot: 47
+  additional_cost: 8.0
+  item_material: LECTERN
+  color: YELLOW
+  max_level: 1
+  translation: Лёгкая промышленность
+  parent: carpentry
+  parent_level: 2
+  level_0_lore:
+    - Прокачивая это вы открываете лёгкие станции!
+    - 'Следующий уровень: кафедра, бочка и т.д.'
+  level_1_lore:
+    - Упс, кажется, вы всё прокачали!
+  level_1:
+    - BEEHIVE
+    - COMPOSTER
+    - LOOM
+    - LECTERN
+    - BARREL
+    - CAULDRON
+    - FLETCHING_TABLE
+    - CARTOGRAPHY_TABLE
+decor:
+  points_multiplier: 4
+  upgrade_slot: 46
+  additional_cost: 5.0
+  item_material: WHITE_CARPET
+  color: BLUE
+  max_level: 3
+  translation: Блоки декора
+  parent: carpentry
+  parent_level: 3
+  level_0_lore:
+    - Прокачивая это вы открываете блоки декора!
+    - 'Следующий уровень: блоки из шерсти и дерева!'
+  level_1_lore:
+    - Прокачивая это вы открываете блоки декора!
+    - 'Следующий уровень: блоки из камня и воска!'
+  level_2_lore:
+    - Прокачивая это вы открываете блоки декора!
+    - 'Следующий уровень: блоки из стекла!'
+  level_3_lore:
+    - Упс, кажется, вы прокачали всё!
+  level_1:
+    - PAINTING
+    - WOOL
+    - BANNER
+    - BOOKSHELF
+    - ITEM_FRAME
+    - ARMOR_STAND
+  level_2:
+    - CONCRETE
+    - TERRACOTTA
+    - CANDLE
+    - HONEY
+    - POT
+  level_3:
+    - GLASS
+    - ICE
+stonecutting:
+  points_multiplier: 1.4
+  upgrade_slot: 41
+  additional_cost: 2
+  item_material: SMOOTH_STONE
+  color: GRAY
+  max_level: 3
+  translation: Камнедело
+  parent: everything
+  parent_level: 1
+  level_0_lore:
+    - Прокачивая это вы открываете блоки из камня!
+    - 'Следующий уровень: Кирпичи, гладкий камень, призмарин!'
+  level_1_lore:
+    - Прокачивая это вы открываете блоки камня!
+    - 'Следующий уровень: Блоки из глубины!'
+    - ''
+    - Новая ветвь прокачки!
+  level_2_lore:
+    - Прокачивая это вы открываете блоки декора!
+    - 'Следующий уровень: Блоки края!'
+    - ''
+    - Новая ветвь прокачки!
+  level_3_lore:
+    - Упс, кажется, вы прокачали всё!
+  level_1:
+    - BRICK
+    - SMOOTH
+    - PRISMARINE
+    - CUT
+    - CHISELED
+  level_2:
+    - BLACKSTONE
+    - QUARTZ
+    - DEEPSLATE
+    - SOUL
+  level_3:
+    - PURPUR
+    - END_ROD
+tinkery:
+  points_multiplier: 10
+  upgrade_slot: 51
+  additional_cost: 5.0
+  item_material: BLAST_FURNACE
+  color: GRAY
+  max_level: 3
+  translation: Кузнечное дело
+  parent: stonecutting
+  parent_level: 2
+  level_0_lore:
+    - Прокачивая это вы открываете тяжёлые станции и блоки из металла!
+    - 'Следующий уровень: Печи, станции, железные слитки и двери!'
+  level_1_lore:
+    - Прокачивая это вы открываете тяжёлые станции и блоки из металла!
+    - 'Следующий уровень: Рельсы, фонари, цепи!'
+  level_2_lore:
+    - Прокачивая это вы открываете тяжёлые станции и блоки из металла!
+    - 'Следующий уровень: Вагонетки, конскую броню!'
+  level_3_lore:
+    - Упс, кажется, вы прокачали всё!
+  level_1:
+    - IRON_NUGGET
+    - GOLD_NUGGET
+    - IRON_INGOT
+    - GOLD_INGOT
+    - IRON_BLOCK
+    - GOLD_BLOCK
+    - IRON_DOOR
+    - IRON_TRAPDOOR
+    - SMITHING_TABLE
+    - GRINDSTONE
+    - LODESTONE
+    - ANVIL
+    - BELL
+    - CAULDRON
+    - SMOKER
+    - BLAST_FURNACE
+  level_2:
+    - CHAIN
+    - LANTERN
+    - RAIL
+  level_3:
+    - MINECART
+    - HORSE_ARMOR
+
+redstone:
+  points_multiplier: 14
+  upgrade_slot: 52
+  additional_cost: 7.0
+  item_material: REDSTONE_TORCH
+  color: RED
+  max_level: 3
+  translation: Механизмы
+  parent: tinkery
+  parent_level: 3
+  level_0_lore:
+    - Прокачивая это вы открываете механизмы из красного камня!
+    - 'Следующий уровень: Красные факела, лампы, повторители и выбрасыватели!'
+  level_1_lore:
+    - Прокачивая это вы открываете механизмы из красного камня!
+    - 'Следующий уровень: Раздатчики, поршни, блоки слизи, нотные блоки!'
+  level_2_lore:
+    - Прокачивая это вы открываете механизмы из красного камня!
+    - 'Следующий уровень: Скалк-сенсор!'
+  level_3_lore:
+    - Упс, кажется, вы прокачали всё!
+  level_1:
+    - REDSTONE
+    - REPEATER
+    - COMPARATOR
+    - HOOK
+    - DISPENCER
+    - BUTTON
+    - LEVER
+    - DETECTOR
+  level_2:
+    - DROPPER
+    - OBSERVER
+    - PISTON
+    - TARGET
+  level_3:
+    - SKULK
+
+magic:
+  points_multiplier: 10
+  upgrade_slot: 4
+  additional_cost: 9.0
+  item_material: EXPERIENCE_BOTTLE
+  color: YELLOW
+  max_level: 3
+  translation: Магия и полезности
+  parent: everything
+  parent_level: 1
+  level_0_lore:
+    - Прокачивая это вы открываете всё, связанное с магией и полезными вещами!
+    - Вёдра, поводок, пузырёк, фейерверки и т.д.
+  level_1_lore:
+    - Прокачивая это вы открываете всё, связанное с магией и полезными вещами!
+    - Золотая еда, стол зачарований, варочная стойка и т.д.
+  level_2_lore:
+    - Прокачивая это вы открываете всё, связанное с магией и полезными вещами!
+    - Возвратный компасс, маяк, око эндера, эндер-сундук и т.д.
+  level_3_lore:
+    - Упс, кажется, вы всё прокачали!
+  level_1:
+    - STEW
+    - TNT
+    - PLAYER_HEAD
+    - TURTLE_HELMET
+    - SPYGLASS
+    - LEAD
+    - FIREWORK
+    - NAME_TAG
+    - FIRE_CHARGE
+    - CLOCK
+    - GLASS_BOTTLE
+    - BUCKET
+    - BRUSH
+    - SADDLE
+    - BOOK
+    - VINES
+    - FLINT_AND_STEEL
+    - COMPASS
+  level_2:
+    - BREWING_STAND
+    - GHAST
+    - ENCHANTING_TABLE
+    - ENDER_PEARL
+    - NETHER_WART
+    - GLISTERING
+    - GOLDEN_CARROT
+    - FERMENTED
+    - GOLDEN_APPLE
+    - BLAZE_ROD
+    - DRAGON
+    - BLAZE_POWDER
+  level_3:
+    - ENDER_CHEST
+    - ENDER_EYE
+    - ELYTRA
+    - BEACON
+    - END_CRYSTAL
+    - CONDUIT
+    - END_PORTAL_FRAME
+    - RECOVERY_COMPASS
+
+leather_armor:
+  points_multiplier: 30
+  upgrade_slot: 2
+  additional_cost: 3.0
+  item_material: LEATHER_CHESTPLATE
+  color: YELLOW
+  max_level: 1
+  translation: Лёгкая броня
+  parent: carpentry
+  parent_level: 3
+  level_0_lore:
+    - Прокачивая это вы открываете лёгкую броню!
+    - Кожаная/медная броня
+    - ''
+    - Новая ветвь прокачки!
+  level_1_lore:
+    - Упс, кажется, вы всё прокачали!
+  level_1:
+    - LEATHER_CHESTPLATE
+    - LEATHER_LEGGINGS
+    - LEATHER_HELMET
+    - LEATHER_BOOTS
+
+iron_armor:
+  points_multiplier: 50
+  upgrade_slot: 9
+  additional_cost: 7.0
+  item_material: IRON_CHESTPLATE
+  color: WHITE
+  max_level: 1
+  translation: Средняя броня
+  parent: leather_armor
+  parent_level: 1
+  level_0_lore:
+    - Прокачивая это вы открываете среднюю броню!
+    - Железная/кольчужная броня
+    - ''
+    - Новая ветвь прокачки!
+  level_1_lore:
+    - Упс, кажется, вы всё прокачали!
+  level_1:
+    - IRON_CHESTPLATE
+    - IRON_LEGGINGS
+    - IRON_HELMET
+    - IRON_BOOTS
+    - CHAINMAIL_CHESTPLATE
+    - CHAINMAIL_LEGGINGS
+    - CHAINMAIL_HELMET
+    - CHAINMAIL_BOOTS
+
+diamond_armor:
+  points_multiplier: 70
+  upgrade_slot: 28
+  additional_cost: 15.0
+  item_material: DIAMOND_CHESTPLATE
+  color: BLUE
+  max_level: 1
+  translation: Тяжёлая броня
+  parent: iron_armor
+  parent_level: 1
+  level_0_lore:
+    - Прокачивая это вы открываете тяждёлую броню!
+    - Алмазная/Золотая броня
+  level_1_lore:
+    - Упс, кажется, вы всё прокачали!
+  level_1:
+    - GOLDEN_CHESTPLATE
+    - GOLDEN_LEGGINGS
+    - GOLDEN_HELMET
+    - GOLDEN_BOOTS
+    - DIAMOND_CHESTPLATE
+    - DIAMOND_LEGGINGS
+    - DIAMOND_HELMET
+    - DIAMOND_BOOTS
+
+light_tools:
+  points_multiplier: 30
+  upgrade_slot: 6
+  additional_cost: 3.0
+  item_material: IRON_PICKAXE
+  color: WHITE
+  max_level: 1
+  translation: Лёгкие инструменты
+  parent: stonecutting
+  parent_level: 3
+  level_0_lore:
+    - Прокачивая это вы открываете лёгкие инструменты!
+    - Железные инструменты
+    - ''
+    - Новая ветвь прокачки!
+  level_1_lore:
+    - Упс, кажется, вы всё прокачали!
+  level_1:
+    - IRON_PICKAXE
+    - IRON_SHOVEL
+    - IRON_AXE
+    - IRON_SWORD
+    - IRON_HOE
+
+medium_tools:
+  points_multiplier: 50
+  upgrade_slot: 17
+  additional_cost: 7.0
+  item_material: GOLDEN_PICKAXE
+  color: YELLOW
+  max_level: 1
+  translation: Средние инструменты
+  parent: light_tools
+  parent_level: 1
+  level_0_lore:
+    - Прокачивая это вы открываете средние инструменты!
+    - Золотые инструменты
+    - ''
+    - Новая ветвь прокачки!
+  level_1_lore:
+    - Упс, кажется, вы всё прокачали!
+  level_1:
+    - GOLDEN_PICKAXE
+    - GOLDEN_SHOVEL
+    - GOLDEN_AXE
+    - GOLDEN_SWORD
+    - GOLDEN_HOE
+
+heavy_tools:
+  points_multiplier: 70
+  upgrade_slot: 34
+  additional_cost: 11.0
+  item_material: DIAMOND_PICKAXE
+  color: BLUE
+  max_level: 1
+  translation: Тяжёлые инструменты
+  parent: medium_tools
+  parent_level: 1
+  level_0_lore:
+    - Прокачивая это вы открываете тяжёлые инструменты!
+    - Алмазные инструменты
+  level_1_lore:
+    - Упс, кажется, вы всё прокачали!
+  level_1:
+    - DIAMOND_PICKAXE
+    - DIAMOND_SHOVEL
+    - DIAMOND_AXE
+    - DIAMOND_SWORD
+    - DIAMOND_HOE
