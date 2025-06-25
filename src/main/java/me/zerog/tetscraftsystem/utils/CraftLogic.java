@@ -30,12 +30,12 @@ public class CraftLogic {
             //RESTRICTED CHECK
             List<String> always_restricted = ConfigData.getAlwaysRestricted();
             if (always_restricted.contains(material.toString()) && !precise_blocks.contains(material.toString())) {
-                p.sendMessage(TextComponents.red("Этот предмет крафтить ЗАПРЕЩЕНО!"));
+                p.sendMessage(TextComponents.red(ConfigData.item_blocked));
                 e.setCancelled(true);
             }
             for (String restricted : always_restricted) {
                 if (material.toString().contains(restricted) && !precise_blocks.contains(material.toString())) {
-                    p.sendMessage(TextComponents.red("Этот предмет крафтить ЗАПРЕЩЕНО!"));
+                    p.sendMessage(TextComponents.red(ConfigData.item_blocked));
                     e.setCancelled(true);
                     return;
                 }
@@ -88,13 +88,13 @@ public class CraftLogic {
                                             checkClick(e, i * innerMultiplicative * additional_multiplier, default_points, points_multiplier, p);
                                         } else {
                                             if (ConfigData.getHideUnknown() && section.getString("parent") != null && PersistentData.hasData(p, section.getString("parent")) && PersistentData.getDataInt(p, section.getString("parent")) < section.getInt("parent_level")) {
-                                                p.sendMessage(ChatColor.RED + "Вы не можете это крафтить! Вам необходимо улучшить ветви крафтов!");
+                                                p.sendMessage(ChatColor.RED + ConfigData.cannot_craft2);
                                                 e.setCancelled(true);
                                                 return;
                                             }
 
-                                            p.sendMessage(ChatColor.RED + "Вы не можете это крафтить!");
-                                            p.sendMessage(ChatColor.RED + "Необходимый уровень - " + color + translation + " " + ChatColor.WHITE + i + color + "!");
+                                            p.sendMessage(ChatColor.RED + ConfigData.cannot_craft);
+                                            p.sendMessage(ChatColor.RED + ConfigData.needed_level+" - " + color + translation + " " + ChatColor.WHITE + i + color + "!");
                                             e.setCancelled(true);
                                         }
                                         return;
@@ -109,12 +109,12 @@ public class CraftLogic {
                                 checkClick(e, i * innerMultiplicative * additional_multiplier, default_points, points_multiplier, p);
                             } else {
                                 if (ConfigData.getHideUnknown() && section.getString("parent") != null && PersistentData.hasData(p, section.getString("parent")) && PersistentData.getDataInt(p, section.getString("parent")) < section.getInt("parent_level")) {
-                                    p.sendMessage(ChatColor.RED + "Вы не можете это крафтить! Вам необходимо улучшить ветви крафтов!");
+                                    p.sendMessage(ChatColor.RED + ConfigData.cannot_craft2);
                                     e.setCancelled(true);
                                     return;
                                 }
-                                p.sendMessage(ChatColor.RED + "Вы не можете это крафтить!");
-                                p.sendMessage(ChatColor.RED + "Необходимый уровень - " + color + translation + " " + ChatColor.WHITE + i + color + "!");
+                                p.sendMessage(ChatColor.RED + ConfigData.cannot_craft);
+                                p.sendMessage(ChatColor.RED + ConfigData.needed_level + " - " + color + translation + " " + ChatColor.WHITE + i + color + "!");
                                 e.setCancelled(true);
                             }
                             return;
@@ -170,6 +170,6 @@ public class CraftLogic {
     private static void addPoints(Player p, double points){
         double current_points = PersistentData.getDataDouble(p, "craft_points");
         PersistentData.setData(p, PersistentDataType.DOUBLE, "craft_points", current_points + points);
-        p.sendActionBar(Component.newline().content(ChatColor.YELLOW + "Вы получили " + ChatColor.GREEN + format.format(points) + ChatColor.YELLOW + " опыта крафта!"));
+        p.sendActionBar(Component.newline().content(ChatColor.YELLOW + ConfigData.you_gained + " " + ChatColor.GREEN + format.format(points) + ChatColor.YELLOW +" "+ ConfigData.points +"!"));
     }
 }

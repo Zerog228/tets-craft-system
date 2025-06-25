@@ -33,7 +33,7 @@ public class CraftMenuInventory implements CommandExecutor {
     }
 
     public static void openMenu(Player p) {
-        Inventory inv = Bukkit.createInventory(p, 54, Component.newline().content(ChatColor.DARK_AQUA + "Меню крафта"));
+        Inventory inv = Bukkit.createInventory(p, 54, Component.newline().content(ChatColor.DARK_AQUA + ConfigData.craft_menu));
         FillInventory.fillInventory(inv);
         List<String> specializations = ConfigData.getSpecializations();
         for (String spec : specializations) {
@@ -100,12 +100,12 @@ public class CraftMenuInventory implements CommandExecutor {
                         if(section.contains("additional_cost")) {
                             new_cost += section.getDouble("additional_cost");
                         }
-                        lore.add(Component.newline().content(ChatColor.DARK_AQUA + "Ваш опыт - " + ChatColor.WHITE + "" + format.format(current_points)));
-                        lore.add(Component.newline().content(ChatColor.AQUA + "Текущий уровень - " + ChatColor.WHITE + "" + specialization_level));
-                        lore.add(Component.newline().content(ChatColor.BLUE + "Стоимость улучшения - " + ChatColor.WHITE + new_cost));
+                        lore.add(Component.newline().content(ChatColor.DARK_AQUA + ConfigData.current_xp+" - " + ChatColor.WHITE + "" + format.format(current_points)));
+                        lore.add(Component.newline().content(ChatColor.AQUA + ConfigData.current_level+" - " + ChatColor.WHITE + "" + specialization_level));
+                        lore.add(Component.newline().content(ChatColor.BLUE + ConfigData.upgrade_cost+" - " + ChatColor.WHITE + new_cost));
                     } else {
-                        lore.add(Component.newline().content(ChatColor.DARK_AQUA + "Ваш опыт - " + ChatColor.WHITE + "" + format.format(current_points)));
-                        lore.add(Component.newline().content(ChatColor.AQUA + "Достигнут максимальный уровень"));
+                        lore.add(Component.newline().content(ChatColor.DARK_AQUA + ConfigData.current_xp +" - " + ChatColor.WHITE + "" + format.format(current_points)));
+                        lore.add(Component.newline().content(ChatColor.AQUA + ConfigData.max_level));
                         meta.addEnchant(Enchantment.ARROW_DAMAGE, 1, true);
                     }
                     meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);

@@ -1,3 +1,4 @@
+#
 default_upgrade_cost: 2
 # Points that given by default for crafting 1 item
 default_points_per_craft: 0.0015
@@ -9,6 +10,25 @@ hide_unknown_branch_messages: true
 reset_on_add: true
 # If disabled, craft system is disabled!
 disabled: false
+# Starting points
+starting_points: 1.1
+
+#Translations
+cannot_craft: You cannot craft this
+cannot_craft2: You cannot craft this. You need to unlock previous branches first!
+needed_level: Needed level
+current_level: Current level
+current_xp: Current xp
+upgrade_cost: upgrade cost
+you_gained: You gained
+points: craft xp
+craft_menu: Craft menu
+max_level: Upgraded to max level
+upgraded_to: Upgraded to
+level: level
+dont_have_enough_xp: You don't have enough xp to do that
+item_blocked: This item is blocked!
+
 # Material. Things that will always give default points per craft
 always_gives_exp:
   - STONE_PICKAXE
@@ -64,6 +84,7 @@ precise_materials:
   - RECOVERY_COMPASS
   - CRAFTING_TABLE
 # Material. Things that you can't craft. It's recommended to use full name here, but part of it is also fine
+# Blacklisted items:
 always_restricted:
   - NETHERITE
   - BOAT
@@ -79,18 +100,18 @@ everything:
   # Optional. Additional cost added to specialization's default cost when upgrading
   additional_cost: 0
   # Translation is also optional, especially if you are using plugin and english language
-  translation: Начало
+  translation: The beginning
   # Optional. Is shown after upgrading to certain level of another specialization
   # If it has parent, parent level is required
   # parent: jewelry
   # parent_level: 3
   # Lore for item in menu
   level_0_lore:
-    - Добро пожаловать в меню прокачки крафтов!
-    - Прокачайте это, чтобы начать
+    - Welcome to the craft menu!
+    - Upgrade this to begin the journey
   level_1_lore:
-    - Теперь вам доступны
-    - и другие прокачки крафтов!
+    - Now you unlocked
+    - other branches!
   # Part of block name is enough
   level_1:
     - CHEST
@@ -112,12 +133,12 @@ carpentry:
   item_material: OAK_WOOD
   color: GRAY
   max_level: 4
-  translation: Древообработка
+  translation: Carpentry
   parent: everything
   parent_level: 1
   level_0_lore:
-    - Прокачивая это вы открываете крафты из дерева!
-    - 'Следующий уровень: Заборы, двери и т.п.'
+    - Upgrade this to unlock wood related crafts!
+    - 'Next level - fences, doors, etc.'
   level_1_lore:
     - Прокачивая это вы открываете крафты из дерева!
     - 'Следующий уровень: Калитка, подмостки, костры'

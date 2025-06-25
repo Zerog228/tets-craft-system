@@ -41,7 +41,7 @@ public class TetsCraftSystemCommands implements CommandExecutor, TabCompleter {
                             PersistentData.setData(p, PersistentDataType.DOUBLE, "craft_points", 1.1);
                         }
                     }
-                    sender.sendMessage("Плагин успешно перезагружен!");
+                    sender.sendMessage("Reloaded successfully!");
                 }
                 if (args[0].equals("resetSpecs")) {
                     if(args.length > 1){

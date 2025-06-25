@@ -30,16 +30,10 @@ public final class TetsCraftSystem extends JavaPlugin {
         saveDefaultConfig();
 
         Config.setup();
-        Config.get().addDefault("default_upgrade_cost", 2);
-        Config.get().addDefault("default_points_per_craft", 0.01);
-        Config.get().addDefault("level_cost_formula", "2^l");
-        Config.get().options().copyDefaults(true);
-        Config.save();
 
         ConfigData.put();
 
         pl = this;
-
 
         for(Player p : Bukkit.getOnlinePlayers()){
             for(String str : ConfigData.getSpecializations()) {
@@ -48,7 +42,7 @@ public final class TetsCraftSystem extends JavaPlugin {
                         for (String spec : ConfigData.getSpecializations()) {
                             PersistentData.setData(p, PersistentDataType.INTEGER, spec, 0);
                         }
-                        PersistentData.setData(p, PersistentDataType.DOUBLE, "craft_points", 1.1);
+                        PersistentData.setData(p, PersistentDataType.DOUBLE, "craft_points", ConfigData.getStartingPoints());
                         break;
                     }else{
                         PersistentData.setData(p, PersistentDataType.INTEGER, str, 0);
@@ -59,7 +53,7 @@ public final class TetsCraftSystem extends JavaPlugin {
                 }
             }
             if(!PersistentData.hasData(p, "craft_points")){
-                PersistentData.setData(p, PersistentDataType.DOUBLE, "craft_points", 1.1);
+                PersistentData.setData(p, PersistentDataType.DOUBLE, "craft_points", ConfigData.getStartingPoints());
             }
         }
     }

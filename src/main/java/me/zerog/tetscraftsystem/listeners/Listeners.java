@@ -28,7 +28,7 @@ public class Listeners implements Listener {
 
     @EventHandler
     private static void inventoryClickEvent(InventoryClickEvent e){
-        if (InventoryAction.NOTHING != e.getAction() && e.getView().title().equals(Component.newline().content(ChatColor.DARK_AQUA+"Меню крафта"))) {
+        if (InventoryAction.NOTHING != e.getAction() && e.getView().title().equals(Component.newline().content(ChatColor.DARK_AQUA+ConfigData.craft_menu))) {
             CraftMenuInventoryHandler.craftInventoryClick(e);
             CraftMenuInventory.openMenu((Player) e.getView().getPlayer());
             e.setCancelled(true);

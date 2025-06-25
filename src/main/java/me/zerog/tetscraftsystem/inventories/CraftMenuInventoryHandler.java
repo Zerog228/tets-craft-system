@@ -28,7 +28,7 @@ public class CraftMenuInventoryHandler {
                 int specialization_level = PersistentData.getDataInt(p, specialization);
                 int max_level = section.getInt("max_level");
                 if(specialization_level>=max_level){
-                    p.sendMessage(ChatColor.RED+"Вы достигли максимального уровня!");
+                    p.sendMessage(ChatColor.RED+ConfigData.max_level);
                     return;
                 }
                 if(parent != null && PersistentData.getDataInt(p, parent) < parent_level){
@@ -53,9 +53,9 @@ public class CraftMenuInventoryHandler {
                         }
                         PersistentData.setData(p, PersistentDataType.DOUBLE, "craft_points", craft_points-result);
                         PersistentData.setData(p, PersistentDataType.INTEGER, specialization, specialization_level+1);
-                        p.sendMessage(color+translation+ChatColor.GREEN+" улучшено до "+ChatColor.YELLOW+(specialization_level+1)+ChatColor.GREEN+" уровня!");
+                        p.sendMessage(color+translation+ChatColor.GREEN+" "+ConfigData.upgraded_to+" "+ChatColor.YELLOW+(specialization_level+1)+ChatColor.GREEN+" "+ConfigData.level+"!");
                     }else {
-                        p.sendMessage(ChatColor.RED+"У вас не хватает уровня чтобы улучшить это!");
+                        p.sendMessage(ChatColor.RED+ConfigData.dont_have_enough_xp);
                     }
                 } catch (Exception exception) {
                     exception.printStackTrace();
@@ -63,5 +63,6 @@ public class CraftMenuInventoryHandler {
                 return;
             }
         }
+        e.setCancelled(true);
     }
 }
