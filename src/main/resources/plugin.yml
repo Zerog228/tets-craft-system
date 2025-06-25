@@ -1,0 +1,27 @@
+name: TetsCraftSystem
+version: '${project.version}'
+main: me.zerog.tetscraftsystem.TetsCraftSystem
+api-version: 1.19
+authors: [ Zerog228, ErRoR_SINNER, eric_sx ]
+description: Customazible levels for crafting
+
+commands:
+  crafts:
+    description: Open crafts menu
+    permission: tcs.default
+    usage: /<command>
+    aliases:
+      - craftmenu
+    permission-message: You don't have permissions
+  tcs:
+    description: reloads config
+    permission: tcs.admin
+    usage: /<command>
+    permission-message: You don't have permissions
+permissions:
+  tcs.default:
+    description: Default permissions
+    default: true
+  tcs.admin:
+    description: Admin-only permissions
+    default: op
