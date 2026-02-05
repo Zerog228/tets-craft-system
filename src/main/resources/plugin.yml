@@ -1,8 +1,8 @@
 name: TetsCraftSystem
 version: '${project.version}'
 main: me.zerog.tetscraftsystem.TetsCraftSystem
-api-version: 1.19
-authors: [ Zerog228, ErRoR_SINNER, eric_sx ]
+api-version: '1.21'
+authors: [ Zerog228 ]
 description: Customazible levels for crafting
 
 commands:

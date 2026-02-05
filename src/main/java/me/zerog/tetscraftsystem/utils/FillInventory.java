@@ -12,7 +12,7 @@ public class FillInventory {
         ItemStack stack = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
         ItemMeta meta = stack.getItemMeta();
         meta.displayName(Component.newline().content(""));
-        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ITEM_SPECIFICS);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ADDITIONAL_TOOLTIP);
         stack.setItemMeta(meta);
         for(int i = inv.getSize(); i > 0; i--){
             inv.setItem(i-1, stack);

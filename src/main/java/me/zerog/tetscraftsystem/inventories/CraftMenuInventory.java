@@ -106,7 +106,7 @@ public class CraftMenuInventory implements CommandExecutor {
                     } else {
                         lore.add(Component.newline().content(ChatColor.DARK_AQUA + ConfigData.current_xp +" - " + ChatColor.WHITE + "" + format.format(current_points)));
                         lore.add(Component.newline().content(ChatColor.AQUA + ConfigData.max_level));
-                        meta.addEnchant(Enchantment.ARROW_DAMAGE, 1, true);
+                        meta.addEnchant(Enchantment.POWER, 1, true);
                     }
                     meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
                     meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
